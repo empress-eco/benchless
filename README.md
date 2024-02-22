@@ -1,71 +1,95 @@
-Following steps assume python 3, nodejs, yarn, mariadb, redis and other dependencies are manually installed
+<h1 align="center">Benchless: Streamlining Your Development Environment</h1>
+<p align="center">
+Benchless is your essential toolkit for efficiently setting up Python, NodeJS, or Empress/Empress environments.
+<br />
+<a href="https://grow.empress.eco/">Explore the Docs</a>
+·
+<a href="https://github.com/empress-eco/benchless/issues">Report Bug</a>
+·
+<a href="https://github.com/empress-eco/benchless/issues">Request Feature</a>
+</p>
 
-## Setup Python with pyenv
+## About Benchless
 
-This will use [pyenv](https://github.com/pyenv/pyenv#installation) to setup python version 3.7
+Benchless is an accessible and streamlined solution for developers seeking to set up and manage Python, NodeJS, or Empress/Empress environments. It eliminates the hassle and saves valuable time, enabling you to focus on what matters most – building great software.
 
+### Key Features
+- Python setup via pyenv
+- NodeJS setup via nvm
+- Empress/Empress environment setup
+- Development process management
+- Site creation and deletion
+
+## Getting Started
+
+### Prerequisites
+Ensure you have the following system prerequisites: Python 3, NodeJS, yarn, MariaDB, and Redis.
+
+### Installation
+Follow these steps to get your development environment up and running:
+
+1. Clone the Benchless repository:
+```sh
+git clone https://github.com/empress-eco/benchless.git
+```
+
+2. Set up Python with pyenv:
 ```sh
 pyenv install 3.7.6
 ```
 
-## Setup NodeJS with nvm
-
-This will use [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) to setup nodejs version 12
-
+3. Set up NodeJS with nvm:
 ```sh
 nvm install 12
 ```
 
-Install `yarn`
-
+4. Install yarn:
 ```sh
 npm install yarn -g
 ```
 
-## Setup Frappe/ERPNext Environment
-
+5. Set up Empress/Empress Environment:
 ```sh
-./setup-erpnext.sh
+./setup-Empress.sh
 ```
 
-## Start mariadb
-
-Apply frappe specific config for mariadb. e.g. [frappe.cnf](https://github.com/frappe/bench/wiki/MariaDB-conf-for-Frappe)
-
+6. Start mariadb:
 ```sh
 sudo systemctl start mariadb.service
 ```
 
-## Start development processes
-
+7. Start development processes:
 ```sh
 ./env/bin/honcho start
 ```
 
-## Create new site
-
+8. Create a new site:
 ```sh
-./benchless.py frappe new-site mysite.localhost --install-app erpnext
+./benchless.py Empress new-site mysite.localhost --install-app Empress
 ```
 
-## Drop site
-
+9. Drop a site:
 ```sh
-./benchless.py frappe drop-site mysite.localhost
+./benchless.py Empress drop-site mysite.localhost
 ```
 
-# Production
-
-```sh
-export BENCH_NAME=$(pwd | sed -e s#/#-#g | sed -e 's/-0*//')
-# Symlink supervisor.conf, example for Ubuntu, CentOS uses .ini file instead of .conf
-sudo ln -s `pwd`/config/supervisor.conf /etc/supervisor/conf.d/$BENCH_NAME.conf
-# Symlink nginx.conf
-sudo ln -s `pwd`/config/nginx.conf /etc/nginx/conf.d/$BENCH_NAME.conf
-```
-
-# benchless commands
-
+## Usage
+Explore various Benchless commands with:
 ```sh
 ./benchless --help
 ```
+
+## Contributing
+We welcome and appreciate contributions! Here's how you can contribute:
+
+1. Fork the Benchless repository
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License and Acknowledgements
+
+This project is under the MIT License. Your contributions are also licensed under the MIT License.
+
+We extend our heartfelt gratitude to the Empress Community for their foundational contributions to this project. Their innovative tools and unwavering support have been instrumental to the success of Benchless.
